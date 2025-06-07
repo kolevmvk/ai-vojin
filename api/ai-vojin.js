@@ -23,37 +23,63 @@ export default async function handler(req, res) {
 
   // ℹ️ Staticka baza znanja o 126. brigadi VOJIN
   const info = `
-126. brigada VOJIN (Vazduhoplovnog osmatranja, javljanja i navođenja) je jedinica Ratnog vazduhoplovstva i PVO Vojske Srbije, zadužena za zaštitu vazdušnog prostora Republike Srbije.
+126. brigada VOJIN (Vazduhoplovnog osmatranja, javljanja i navođenja) je operativna jedinica Ratnog vazduhoplovstva i PVO Vojske Srbije, zadužena za neprekidnu kontrolu i zaštitu vazdušnog prostora Republike Srbije.
 
-📍 Sedište: Beograd  
+📍 Sedište: Beograd – Zemun  
 👤 Komandant: pukovnik Jovica Kepčija  
-📞 Telefon: +381 11 3053-282  
-📧 E-pošta: cvs.126brvojin@vs.rs
+📞 Kontakt telefon: +381 11 3053-282  
+📧 E-pošta: cvs.126brvojin@vs.rs  
+📅 Dan jedinice: 12. oktobar  
+🎇 Krsna slava: Sveti Petar Koriški
 
-🎯 Zadaci:
+🎯 Glavni zadaci:
 - Neprekidno osmatranje i kontrola vazdušnog prostora
-- Otkrivanje, praćenje i identifikacija vazdušnih ciljeva
-- Navođenje lovačke avijacije
-- Usmeravanje PVO jedinica
-- Pomoć vazduhoplovima u nuždi
+- Otkrivanje, identifikacija i praćenje vazdušnih ciljeva
+- Navođenje lovačke avijacije i usmeravanje PVO jedinica
 - Obaveštavanje o situaciji u vazdušnom prostoru
-- Održavanje radara i sistema automatizacije
+- Pomoć vazduhoplovima u nuždi
+- Održavanje radarskih i automatizovanih sistema
 
-🛡️ Struktura:
-- Komandna četa
-- 20. bataljon VOJIN
-- 31. bataljon VOJIN
-- Bataljon za tehničko održavanje i snabdevanje
+🛡️ Organizacijska struktura:
+- Komanda (Beograd)
+- 20. bataljon VOJIN (Batajnica)
+- 31. bataljon VOJIN (Kraljevo )
+- Bataljon za tehničko održavanje i snabdevanje (Banjica)
 
-📡 Oprema:
-- AN/TPS-70
-- GM-400
-- GM-200
-- SOVA 24
-- AS-84
+📡 Radarska oprema:
+- AN/TPS-70: američki 3D radar, domet 450 km, visina do 30.000 m
+- GM-403 i GM-200 (Thales): savremeni radari srednjeg i velikog dometa
+- SOVA 24: domaći taktički radar za niske visine
+- AS-84: mobilni sistem iz SFRJ sa mogućnostima zamene položaja
 
-🏅 Dan jedinice: 12. oktobar  
-Krsna slava: Sveti Petar Koriški  
+📖 Istorijat:
+- Jedinica je formirana 1955. godine.
+- Tokom NATO agresije 1999. godine, igrala ključnu ulogu u otkrivanju i javljanju o ciljevima.
+- Učestvovala u sistemu pasivne detekcije i preživljavanja putem premestivih radarskih stanica.
+
+🎓 Obuka i kadar:
+- Oficiri i podoficiri školuju se na Vojnoj akademiji i VTI sistemima
+- Tehničko osoblje prolazi dodatne kurseve za GM-403 i TPS-70
+- Posade su obučene za rad u uslovima elektronskog ometanja i noćnim operacijama
+
+🌍 Saradnja i interoperabilnost:
+- Saradnja sa civilnom kontrolom letenja kroz razmenu radarskih podataka
+- Učestvovanje u međunarodnim vežbama kroz program Partnerstvo za mir
+- Mogućnost integracije sa sistemima NATO interoperabilnog formata
+
+📍 Lokacije značajnih radarskih položaja:
+- Banjica (komanda i )
+- Banovce (GM-403)
+- Murtenica / Zlatibor (otkrivanje iz pravca juga)
+- Vidojevica / Kopaonik (dominantne visine za osmatranje)
+
+⚠️ Tehničke specifičnosti:
+- Sistem redundanse – prekid u radu jednog položaja ne remeti sistem
+- Automatizovani sistem za detekciju i alarmiranje u realnom vremenu
+- Mogućnost povezivanja sa PVO sistemima tipa Neva, Kub, i Pantsir S1
+
+🔒 Napomena:
+Podaci su prilagođeni za edukativne i informativne svrhe u okviru Zastavnik AI sistema. Operativni detalji i šifre nisu deo javne baze znanja.
 `;
 
   const systemPrompt = `
