@@ -1,5 +1,3 @@
-import fetch from 'node-fetch';
-
 export default async function handler(req, res) {
   // 🌐 CORS – dozvoli zahteve i sa weba i iz APK-a
   res.setHeader('Access-Control-Allow-Origin', '*');
