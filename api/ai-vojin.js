@@ -16,24 +16,9 @@ export default async function handler(req, res) {
 
   // ✅ Izvuci prompt iz tela
   const { prompt } = req.body;
-
   if (!prompt || typeof prompt !== 'string') {
     return res.status(400).json({ error: 'Missing or invalid prompt field' });
   }
-  // 👀 Detekcija posebnih pitanja za zapošljavanje
-  const isRecruitmentQuestion = /kako.*(zaposlim|postanem|pridružim).*brigad/i.test(prompt);
-
-  // 🔄 Priprema dodatnog follow-up sistema
-  const userMessage = { role: 'user', content: prompt };
-  const followUpMessage = {
-    role: 'system',
-    content: `Ako korisnik pita kako da se zaposli ili pridruži brigadi, postavi mu dodatno pitanje tipa: "Da li već imate vojnu obuku ili ste civil?", kako bi mogao preciznije da mu se odgovori.`
-  };
-
-  const messages = isRecruitmentQuestion
-    ? [{ role: 'system', content: systemPrompt }, followUpMessage, userMessage]
-    : [{ role: 'system', content: systemPrompt }, userMessage];
-
 
   // ℹ️ Staticka baza znanja o 126. brigadi VOJIN
   const info = `
@@ -44,20 +29,21 @@ export default async function handler(req, res) {
 📞 Kontakt telefon: +381 11 3053-282  
 📧 E-pošta: cvs.126brvojin@vs.rs  
 📅 Dan jedinice: 12. oktobar  
+📅 Dan službe VOJIN: 18. jun  
 🎇 Krsna slava: Sveti Petar Koriški
 
 🎯 Glavni zadaci:
 - Neprekidno osmatranje i kontrola vazdušnog prostora
-- Otkrivanje, identifikacija i praćenje vazdušnih ciljeva
+- Otkrivanje, identifikacija i praćenje ciljeva
 - Navođenje lovačke avijacije i usmeravanje PVO jedinica
 - Obaveštavanje o situaciji u vazdušnom prostoru
 - Pomoć vazduhoplovima u nuždi
-- Održavanje radarskih i automatizovanih sistema
+- Tehnička podrška radarima i sistemima automatizacije
 
 🛡️ Organizacijska struktura:
 - Komanda (Beograd)
 - 20. bataljon VOJIN (Batajnica)
-- 31. bataljon VOJIN (Kraljevo )
+- 31. bataljon VOJIN (Kraljevo)
 - Bataljon za tehničko održavanje i snabdevanje (Banjica)
 
 📡 Radarska oprema:
@@ -67,36 +53,34 @@ export default async function handler(req, res) {
 - AS-84: mobilni sistem iz SFRJ sa mogućnostima zamene položaja
 
 📖 Istorijat:
-- Jedinica je formirana 1955. godine.
-- Tokom NATO agresije 1999. godine, igrala ključnu ulogu u otkrivanju i javljanju o ciljevima.
-- Učestvovala u sistemu pasivne detekcije i preživljavanja putem premestivih radarskih stanica.
-
+- 18. jun 1915. – početak službe VOJIN u srpskoj vojsci
+- 1955. – formirani prvi pukovi VOJIN u JNA
+- 12. oktobar 1992. – osnivanje brigade spajanjem 3. i 5. puka
+- 1999. – tokom NATO agresije, brigada je svih 78 dana izvršavala zadatke i odlikovana Ordenom narodnog heroja
 
 🎓 Obuka i kadar:
-- Oficiri i podoficiri školuju se na Vojnoj akademiji i VTI sistemima
-- Tehničko osoblje prolazi dodatne kurseve za GM-403 i TPS-70
-- Posade su obučene za rad u uslovima elektronskog ometanja i noćnim operacijama
+- Školovanje oficira i podoficira na Vojnoj akademiji
+- Tehnička obuka za GM-403, TPS-70 i noćni rad
+- Kadrovi spremni za rad u uslovima elektronskog ometanja
 
 🌍 Saradnja i interoperabilnost:
-- Saradnja sa civilnom kontrolom letenja kroz razmenu radarskih podataka
-- Učestvovanje u međunarodnim vežbama kroz program Partnerstvo za mir
-- Mogućnost integracije sa sistemima NATO interoperabilnog formata
+- Saradnja sa civilnom kontrolom letenja
+- Učešće u vežbama Partnerstva za mir
+- Povezivanje sa PVO sistemima Neva, Kub, Pantsir S1
 
-📍 Lokacije značajnih radarskih položaja:
-- Banjica (komanda i )
+📍 Lokacije značajnih položaja:
+- Banjica (komanda)
 - Banovce (GM-403)
-- Murtenica / Zlatibor (otkrivanje iz pravca juga)
-- Vidojevica / Kopaonik (dominantne visine za osmatranje)
+- Murtenica / Zlatibor
+- Vidojevica / Kopaonik
 
-⚠️ Tehničke specifičnosti:
-- Sistem redundanse – prekid u radu jednog položaja ne remeti sistem
-- Automatizovani sistem za detekciju i alarmiranje u realnom vremenu
-- Mogućnost povezivanja sa PVO sistemima tipa Neva, Kub, i Pantsir S1
-
-🔒 Napomena:
-Podaci su prilagođeni za edukativne i informativne svrhe u okviru Zastavnik AI sistema. Operativni detalji i šifre nisu deo javne baze znanja.
+⚠️ Specifičnosti:
+- Redundansa radarskih stanica
+- Automatizovana detekcija i alarmiranje u realnom vremenu
+- Podaci su edukativni, bez operativnih šifara
 `;
 
+  // 🎛️ Prompt sistem
   const systemPrompt = `
 Ti si Zastavnik AI – vojni asistent.
 
@@ -110,6 +94,18 @@ Tvoj zadatak:
 Baza znanja:
 ${info}
 `;
+
+  // 🔍 Detekcija pitanja o zapošljavanju
+  const isRecruitmentQuestion = /kako.*(zaposlim|postanem|pridružim).*brigad/i.test(prompt);
+  const userMessage = { role: 'user', content: prompt };
+  const followUpMessage = {
+    role: 'system',
+    content: `Ako korisnik pita kako da se zaposli ili pridruži brigadi, postavi mu dodatno pitanje tipa: "Da li već imate vojnu obuku ili ste civil?", kako bi mogao preciznije da mu se odgovori.`
+  };
+
+  const messages = isRecruitmentQuestion
+    ? [{ role: 'system', content: systemPrompt }, followUpMessage, userMessage]
+    : [{ role: 'system', content: systemPrompt }, userMessage];
 
   console.log('⬅️ ZAHTEV PRIMLJEN');
   console.log('PROMPT:', prompt);
@@ -127,7 +123,6 @@ ${info}
         model: 'meta-llama/llama-4-maverick:free',
         messages: messages
       })
-
     });
 
     const data = await response.json();
