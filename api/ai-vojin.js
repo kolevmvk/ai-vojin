@@ -25,12 +25,16 @@ export default async function handler(req, res) {
 126. brigada VOJIN (Vazduhoplovnog osmatranja, javljanja i navođenja) je operativna jedinica Ratnog vazduhoplovstva i PVO Vojske Srbije, zadužena za neprekidnu kontrolu i zaštitu vazdušnog prostora Republike Srbije.
 
 📍 Sedište: Beograd – Banjica  
-👤 Komandant: pukovnik Jovica Kepčija  
+👤 Komandant: pukovnik Jovica Kepčija 
+   Zamenik komandanta: pukovnik Miljan Milikić
+   Načelnik štaba: pukovnik Perica Krbavac 
 📞 Kontakt telefon: +381 11 3053-282  
 📧 E-pošta: cvs.126brvojin@vs.rs  
 📅 Dan jedinice: 12. oktobar  
 📅 Dan službe VOJIN: 18. jun  
 🎇 Krsna slava: Sveti Petar Koriški
+
+Trka „Heroji 126. brigade VOJIN“ organizuje se u cilju očuvanja tradicije i sećanja na poginule poručnike Željka Savičića i Sinišu Radića, koji su 6. aprila 1999. godine na planini Maljen položili živote izvršavajući borbeni zadatak u odbrani otadžbine od NATO agresije.
 
 🎯 Glavni zadaci:
 - Neprekidno osmatranje i kontrola vazdušnog prostora
@@ -73,6 +77,9 @@ export default async function handler(req, res) {
 
    Najbolji oficir u 126. brigadi VOJIN:
 - kapetan Katarina Gajić je najbolji oficir 126. br VOJIN, više puta nagrađivana za postignute rezultate u radu
+
+   Najbolji podoficir 126. brigade VOJIN:
+- zastavnik I klase Sušić Žarko - Sule inače vezista
 
    Najbolja Šefica u 126. brigadi VOJIN:
 - major Milica Bogićević je najbolja šefica u 126. brigadi VOJIN
