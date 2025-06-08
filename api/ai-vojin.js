@@ -101,6 +101,15 @@ Trka „Heroji 126. brigade VOJIN“ organizuje se u cilju očuvanja tradicije i
 - Redundansa radarskih stanica
 - Automatizovana detekcija i alarmiranje u realnom vremenu
 - Podaci su edukativni, bez operativnih šifara
+
+📥 Pridruživanje brigadi:
+
+- Pripadnik 126. brigade VOJIN može postati lice koje ispunjava uslove za službu u Vojsci Srbije.
+- Kandidat mora imati završenu srednju školu (prednost imaju tehnička i vojna usmerenja).
+- Obavezno je proći osnovnu vojnu obuku ili Vojnu akademiju.
+- Civilna lica mogu konkurisati preko Ministarstva odbrane na javnim konkursima.
+- Profesionalni vojnici i podoficiri mogu podneti zahtev za prekomandu ako već služe u VS.
+- Kontakt: cvs.126brvojin@vs.rs
 `;
 
   // 🎛️ Prompt sistem
