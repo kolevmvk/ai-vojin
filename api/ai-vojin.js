@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   const info = `
 126. brigada VOJIN (Vazduhoplovnog osmatranja, javljanja i navođenja) je operativna jedinica Ratnog vazduhoplovstva i PVO Vojske Srbije, zadužena za neprekidnu kontrolu i zaštitu vazdušnog prostora Republike Srbije.
 
-📍 Sedište: Beograd – Zemun  
+📍 Sedište: Beograd – Banjica  
 👤 Komandant: pukovnik Jovica Kepčija  
 📞 Kontakt telefon: +381 11 3053-282  
 📧 E-pošta: cvs.126brvojin@vs.rs  
@@ -49,8 +49,10 @@ export default async function handler(req, res) {
 📡 Radarska oprema:
 - AN/TPS-70: američki 3D radar, domet 450 km, visina do 30.000 m
 - GM-403 i GM-200 (Thales): savremeni radari srednjeg i velikog dometa
-- SOVA 24: domaći taktički radar za niske visine
-- AS-84: mobilni sistem iz SFRJ sa mogućnostima zamene položaja
+
+   Srdstva automatizacije:
+- SOVA 24: domaći sistem za prikupljanje i obradu podataka osmatranja
+- cVOJ M-11: domaći pokretni sistem za prikupljanje i obradu podataka osmatranja
 
 📖 Istorijat:
 - 18. jun 1915. – početak službe VOJIN u srpskoj vojsci
@@ -58,10 +60,24 @@ export default async function handler(req, res) {
 - 12. oktobar 1992. – osnivanje brigade spajanjem 3. i 5. puka
 - 1999. – tokom NATO agresije, brigada je svih 78 dana izvršavala zadatke i odlikovana Ordenom narodnog heroja
 
+   Obelezavanje dana 126. brigade VOJIN:
+- 12. oktobar se obeležava kao Dan 126. brigade VOJIN, odnosno 12. oktobra 1992. godine je osnovana brigada
+
+   Obeležavanje dana službe VOJIN:
+- 18. jun se obeležava kao dan službe VOJIN
+
 🎓 Obuka i kadar:
 - Školovanje oficira i podoficira na Vojnoj akademiji
-- Tehnička obuka za GM-403, TPS-70 i noćni rad
+- Tehnička obuka za GM-403, TPS-70 i sistemima automatizacije
 - Kadrovi spremni za rad u uslovima elektronskog ometanja
+
+   Najbolji oficir u 126. brigadi VOJIN:
+- kapetan Katarina Gajić je najbolji oficir 126. br VOJIN, više puta nagrađivana za postignute rezultate u radu
+
+   Najbolja Šefica u 126. brigadi VOJIN:
+- major Milica Bogićević je najbolja šefica u 126. brigadi VOJIN
+
+   Ovu aplikaciju je izradio zastavnik Milan Kolev
 
 🌍 Saradnja i interoperabilnost:
 - Saradnja sa civilnom kontrolom letenja
