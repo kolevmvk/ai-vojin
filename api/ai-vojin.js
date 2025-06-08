@@ -20,6 +20,20 @@ export default async function handler(req, res) {
   if (!prompt || typeof prompt !== 'string') {
     return res.status(400).json({ error: 'Missing or invalid prompt field' });
   }
+  // 👀 Detekcija posebnih pitanja za zapošljavanje
+  const isRecruitmentQuestion = /kako.*(zaposlim|postanem|pridružim).*brigad/i.test(prompt);
+
+  // 🔄 Priprema dodatnog follow-up sistema
+  const userMessage = { role: 'user', content: prompt };
+  const followUpMessage = {
+    role: 'system',
+    content: `Ako korisnik pita kako da se zaposli ili pridruži brigadi, postavi mu dodatno pitanje tipa: "Da li već imate vojnu obuku ili ste civil?", kako bi mogao preciznije da mu se odgovori.`
+  };
+
+  const messages = isRecruitmentQuestion
+    ? [{ role: 'system', content: systemPrompt }, followUpMessage, userMessage]
+    : [{ role: 'system', content: systemPrompt }, userMessage];
+
 
   // ℹ️ Staticka baza znanja o 126. brigadi VOJIN
   const info = `
@@ -56,6 +70,7 @@ export default async function handler(req, res) {
 - Jedinica je formirana 1955. godine.
 - Tokom NATO agresije 1999. godine, igrala ključnu ulogu u otkrivanju i javljanju o ciljevima.
 - Učestvovala u sistemu pasivne detekcije i preživljavanja putem premestivih radarskih stanica.
+
 
 🎓 Obuka i kadar:
 - Oficiri i podoficiri školuju se na Vojnoj akademiji i VTI sistemima
@@ -110,11 +125,9 @@ ${info}
       },
       body: JSON.stringify({
         model: 'meta-llama/llama-4-maverick:free',
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: prompt }
-        ]
+        messages: messages
       })
+
     });
 
     const data = await response.json();
