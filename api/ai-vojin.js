@@ -111,6 +111,43 @@ Trka „Heroji 126. brigade VOJIN“ organizuje se u cilju očuvanja tradicije i
 - Profesionalni vojnici i podoficiri mogu podneti zahtev za prekomandu ako već služe u VS.
 - Kontakt: cvs.126brvojin@vs.rs
 `;
+const infoRadari = `
+📡 Karakteristike radara u 126. brigadi VOJIN:
+
+- AN/TPS-70:
+  - 3D radar američke proizvodnje
+  - Domet: do 450 km
+  - Visina pokrivanja: do 30.000 m
+  - Frekvencijski opseg: S-band
+  - Mogućnost praćenja više ciljeva istovremeno (MTI)
+
+- GM-403:
+  - Francuski radar iz Thales grupe
+  - Domet: 470 km
+  - Pokriva 360° azimut i 30° elevaciju
+  - Visoka otpornost na ometanje
+  - Kompatibilan sa NATO sistemima
+
+- GM-200:
+  - Srednjeg dometa, 3D radar za taktičku podršku
+  - Brzo postavljanje i premestanje
+  - Povezivanje sa PVO jedinicama
+
+📦 Automatizovani sistemi:
+
+- SOVA 24:
+  - Domaći sistem za automatsko prikupljanje i analizu radarskih podataka
+  - Radi u realnom vremenu
+  - Integracija sa višim nivoima komande
+
+- cVOJ M-11:
+  - Mobilni automatizovani centar
+  - Omogućava obradu i distribuciju podataka sa više radara
+  - Koristi se u scenarijima brzog raspoređivanja
+
+🛠️ Svi radari i sistemi su prilagođeni za rad u uslovima elektronskog ometanja i ometanja GPS signala.
+`;
+
 
   // 🎛️ Prompt sistem
   const systemPrompt = `
@@ -125,6 +162,7 @@ Tvoj zadatak:
 
 Baza znanja:
 ${info}
+${infoRadari}
 `;
 
   // 🔍 Detekcija pitanja o zapošljavanju
